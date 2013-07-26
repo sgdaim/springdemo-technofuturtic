@@ -4,9 +4,10 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>Index</title>
 </head>
 <body>
-
+		<a href="createPerson">Create person</a>
+		<a href="listperson">List person</a>
 </body>
 </html>
