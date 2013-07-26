@@ -16,12 +16,6 @@ public class PersonDao  extends BaseRepository<Person>{
 	}
 
 
-	public void addPerson(String name, String firstname){
-		Person p = new Person();
-		p.setFirstname(firstname);
-		p.setName(name);
-		em.persist(p);
-	}
 
 }
 

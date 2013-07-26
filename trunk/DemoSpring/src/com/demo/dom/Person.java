@@ -8,24 +8,24 @@ import javax.persistence.Entity;
 public class Person extends BaseEntity {
 	
 	private String lastName;
-	private String firstname;
+	private String firstName;
 	
 	public String getLastName() {
 		return lastName;
 	}
-	public void setName(String name) {
+	public void setLastName(String name) {
 		this.lastName = name;
 	}
-	public String getFirstname() {
-		return firstname;
+	public String getFirstName() {
+		return firstName;
 	}
-	public void setFirstname(String firstname) {
-		this.firstname = firstname;
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
 	}
 	
 	@Override
 	public String toString() {
-		return "Person [name=" + lastName + ", firstname=" + firstname + "]";
+		return "Person [name=" + lastName + ", firstname=" + firstName + "]";
 	}
 
 }

@@ -7,15 +7,13 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.demo.dom.Person;
 
+/** Entry point, thanks to the request mapping "/" */
 
 @Controller
 public class IndexController{
-	Person person;
-
-
 	@RequestMapping("/")
-	public ModelAndView showIndex(){
-		return new ModelAndView("index","person", person);
+	public String showIndex(){
+		return "index";  // JSP
 	} 
 
 }
