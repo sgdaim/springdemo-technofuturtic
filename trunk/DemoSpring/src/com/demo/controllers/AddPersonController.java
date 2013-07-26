@@ -27,6 +27,6 @@ public class AddPersonController {
         return this.redirectList();
     }     
     public ModelAndView redirectList(){
-        return new ModelAndView("listPerson");
+        return new ModelAndView("listperson");
     } 
 }
