@@ -18,8 +18,8 @@
 			</tr>
 			<c:forEach items="${persons}" var="person">
 				<tr>
-					<td>${person.getLastName()}</td>
-					<td>${person.getFirstName()}</td>
+					<td>${person.lastName}</td>
+					<td>${person.firstname}</td>
 				</tr>
 			</c:forEach>
 		</table>
