@@ -1,7 +1,7 @@
 package com.demo.dom;
 
 import javax.persistence.Entity;
-
+ 
 
 
 @Entity
