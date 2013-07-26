@@ -4,9 +4,15 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>helloworld</title>
+<title>hello world</title>
 </head>
 <body>
-
+					<form method="Post" action="addPerson">
+						Name:<input type="text" name="name">
+						<br> 
+						First name: <input type="text" name="firstname">
+						<br>
+						<center><input type="submit" value="Send"></center>
+					</form>
 </body>
 </html>
