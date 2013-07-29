@@ -13,7 +13,7 @@ import com.demo.dom.Person;
 @RequestMapping("/person")
 public class PersonEditController {
 	
-    @Autowired PersonDao personDao;
+	@Autowired PersonDao personDao;
     
     /** called before displaying the form */
     @RequestMapping(value={"/create"})    // Accepts url starting with "/person/create"
