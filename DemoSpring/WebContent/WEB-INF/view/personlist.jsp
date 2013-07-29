@@ -26,6 +26,6 @@
 		</table>
 	</center>
 		<a href="person/create">Create person</a><br/>	
-		<a href="/DemoSpring/">Home</a><br/>			
+		<a href="./">Home</a><br/>			
 </body>
 </html>
