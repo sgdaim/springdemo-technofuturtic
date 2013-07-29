@@ -17,11 +17,10 @@
 				<td>Name</td>
 				<td>First name</td>
 			</tr>
-			<c:forEach items="${persons}"  <%-- a List<Person> has been attached (with the name "persons") to the ModelAndView object by the controller --%>
-			           var="person"> <%-- local name of the current person in this loop --%>
+			<c:forEach items="${persons}"  var="person"> 
 				<tr>
 					<td>${person.lastName}</td>
-					<td>${person.firstname}</td>
+					<td>${person.firstName}</td>
 				</tr>
 			</c:forEach>
 		</table>
