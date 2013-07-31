@@ -7,9 +7,9 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.context.annotation.ScopedProxyMode;
 import org.springframework.stereotype.Component;
 
-@SuppressWarnings("serial")
-@Component 
-@Scope(value="session", proxyMode= ScopedProxyMode.TARGET_CLASS)
+//@SuppressWarnings("serial")
+//@Component 
+//@Scope(value="session", proxyMode= ScopedProxyMode.TARGET_CLASS)
 
 public class ShoppingBasket implements Serializable {
     List<Book> bookList = new ArrayList<Book>();
@@ -24,7 +24,7 @@ public class ShoppingBasket implements Serializable {
     }
     public double getTotal(){
         double tot= 0;
-        for(Book bk:bookList){
+        for(Book bk : bookList){
             tot +=bk.getPrice();
         }
         return tot;
