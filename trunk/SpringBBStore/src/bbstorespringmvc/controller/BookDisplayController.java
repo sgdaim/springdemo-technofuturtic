@@ -11,11 +11,11 @@ import bbstorespringmvc.model.Book;
 import bbstorespringmvc.repository.BookRepository;
 
 @Controller
-@RequestMapping("/book")
 public class BookDisplayController extends BaseController {  // By convention here, we name the controller that display something XxxxDisplayController (and the JSP xxxdisplay.jsp) => it's not "BookDetailController".
 
 	@Autowired BookRepository bookRepository;
 	
+	@RequestMapping("/book")
 	public ModelAndView displayBook(@RequestParam("id") long id) {  // We could use isbn insead, but Book inherits from BaseEntity now and gets an .id field from it.
 		Book book = (Book)getRequiredEntity(id, Book.class);
 		return new ModelAndView("bookdisplay", // JSP name.

@@ -12,12 +12,11 @@ import bbstorespringmvc.model.Book;
 import bbstorespringmvc.repository.BookRepository;
 
 @Controller
-@RequestMapping("/book")   // To be consistent, we don't say "/catalog". 
 public class BookListController extends BaseController {
 
 	@Autowired BookRepository bookRepository;
 
-	@RequestMapping(method=RequestMethod.GET)  // Takes the request to "/book" (see above) that are GET (not POST) if no other mapping matches (parameter or sub-path).
+	@RequestMapping("/booklist")
 	public ModelAndView showBookList(){
 		ModelAndView mv = new ModelAndView("booklist");   // JSP
 		List<Book> list = bookRepository.findAllByTitle();
@@ -26,7 +25,7 @@ public class BookListController extends BaseController {
 	}
 	
 	/** Creates a few books in the DB */
-	@RequestMapping("createtestdata")
+	@RequestMapping("/bookcreatetestdata")
 	public String createTestBooks() {
 		Book b1 = new Book("12345", "Springo Fantastico", "John Rizzo", 10);
 		Book b2 = new Book("22345", "Javablabla", "John Rizzo", 20);
@@ -36,6 +35,6 @@ public class BookListController extends BaseController {
 		bookRepository.persist(b2);
 		bookRepository.persist(b3);
 		
-		return "redirect:/book";  // display the list again. We ask the browser to send a new HTTP request to /book, and we'll go through the controller putting the list of books in the request (in the ModelAndView) for the JSP.
+		return "redirect:/booklist";  // display the list again. We ask the browser to send a new HTTP request to /book, and we'll go through the controller putting the list of books in the request (in the ModelAndView) for the JSP.
 	}
 }
