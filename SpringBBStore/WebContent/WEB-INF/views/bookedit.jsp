@@ -12,18 +12,12 @@
 </head>
 <body>
 	<h1>Edit Book</h1>
-	<form:form modelAttribute="book" method="post" action="book/editsubmit">
-		<table>
-		<tr>
-			<td>
-				<form:hidden path="id" />
-				<form:input path="title" />	<br>
-				<form:input path="price" />euros<br>
-				<form:input path="isbn" />  <br>
-				<input type="submit" value="Save" />
-		    </td>
-		</tr>
-		</table>
+	<form:form modelAttribute="book" method="post" action="bookeditsubmit">
+		<form:hidden path="id" />
+		Title: <form:input path="title" />	<br>
+		Price: <form:input path="price" />euros<br>
+		ISBN: <form:input path="isbn" />  <br>
+		<input type="submit" value="Save" />
 	</form:form>
 </body>
 </html>

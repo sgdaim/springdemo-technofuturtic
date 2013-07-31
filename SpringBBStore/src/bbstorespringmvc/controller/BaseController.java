@@ -5,13 +5,15 @@ import javax.persistence.PersistenceContext;
 
 import org.springframework.transaction.annotation.Transactional;
 
+import bbstorespringmvc.model.BaseEntity;
+
 @Transactional
 public class BaseController {
     
     @PersistenceContext
     EntityManager em;
     
-    protected Object getRequiredEntity(long id, Class<?> clazz) {
+    protected Object getRequiredEntity(long id, Class<? extends BaseEntity> clazz) {
         Object obj =  em.find(clazz, id );
         if (obj == null) {
             throw new RuntimeException("Indvalid URL. The " + clazz.getName() + " with id '"+id+"' is not found.");
@@ -19,7 +21,14 @@ public class BaseController {
         return obj;
     }    
     
-//    protected Object getRequiredEntityByUrl(String url, Class<?> clazz){
+    protected Object getRequiredDetachedEntity(long id, Class<? extends BaseEntity> clazz) {
+    	Object entity = getRequiredEntity(id, clazz);
+    	em.detach(entity);
+    	return entity;
+    }
+
+    
+    //    protected Object getRequiredEntityByUrl(String url, Class<?> clazz){
 //    	Object obj;
 //		try {
 //			obj = em.createQuery("select e from "+clazz.getName()+" e where e.url = :url").setParameter("url",url).getSingleResult();
@@ -49,11 +58,6 @@ public class BaseController {
 //     * @param id
 //     * @return
 //     */
-//    protected E getRequiredDetachedEntity(long id) {
-//    	E entity = getRequiredEntity(id);
-//    	em.detach(entity);
-//    	return entity;
-//    }
 //
 //    /**
 //     * handle AjaxValidationException and return an AjaxExceptionVO to get message in jQuery.error() 

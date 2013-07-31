@@ -16,6 +16,6 @@
    Author: ${book.author} <br>
    Price: ${book.price} <br>
    <br>
-   <a href="book/edit?id=${book.id}">Edit book</a>
+   <a href="bookedit?id=${book.id}">Edit book</a>
 </body>
 </html>
