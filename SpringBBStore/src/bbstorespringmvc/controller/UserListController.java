@@ -5,11 +5,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.portlet.ModelAndView;
 
-import bbstorespringmvc.repository.UserDao;
+import bbstorespringmvc.repository.UserRepository;
 
 @Controller
 public class UserListController {
-	@Autowired UserDao userDao;
+	@Autowired UserRepository userDao;
 	
 	@RequestMapping("/viewUserlist")
 	public ModelAndView viewUserList()

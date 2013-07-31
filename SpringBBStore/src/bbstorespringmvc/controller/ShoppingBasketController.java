@@ -8,31 +8,31 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import bbstorespringmvc.model.ShoppingBasket;
-import bbstorespringmvc.repository.BookDao;
+import bbstorespringmvc.repository.BookRepository;
 
 
 @Controller
 public class ShoppingBasketController {
     
-    @Autowired    BookDao bookDao;
-    @Autowired    ShoppingBasket shoppingBasket;
-    @Autowired    ListBookController listBookController;
-    
-    @RequestMapping(value="/addbooktobasket")
-    public ModelAndView addBookToBasket(@RequestParam("id")Long id){
-        shoppingBasket.addBook(bookDao.find(id));
-        return listBookController.viewList(false);
-    } 
-    
-    @RequestMapping(value={"/viewshoppingcart"})
-    public ModelAndView viewShoppingCart(){
-        ModelAndView mv =new ModelAndView("shoppingbasket");
-        mv.addObject( "bookBasket",shoppingBasket);
-        return mv;
-    } 
-    @RequestMapping(value={"/removefrombasket"})
-    public ModelAndView removeFromBasket( @RequestParam("bookId")Long bookId){
-        shoppingBasket.remove(bookDao.find(bookId));
-        return viewShoppingCart();
-    } 
+//    @Autowired    BookRepository bookDao;
+//    @Autowired    ShoppingBasket shoppingBasket;
+//    @Autowired    ListBookController listBookController;
+//    
+//    @RequestMapping(value="/addbooktobasket")
+//    public ModelAndView addBookToBasket(@RequestParam("id")Long id){
+//        shoppingBasket.addBook(bookDao.find(id));
+//        return listBookController.viewList(false);
+//    } 
+//    
+//    @RequestMapping(value={"/viewshoppingcart"})
+//    public ModelAndView viewShoppingCart(){
+//        ModelAndView mv =new ModelAndView("shoppingbasket");
+//        mv.addObject( "bookBasket",shoppingBasket);
+//        return mv;
+//    } 
+//    @RequestMapping(value={"/removefrombasket"})
+//    public ModelAndView removeFromBasket( @RequestParam("bookId")Long bookId){
+//        shoppingBasket.remove(bookDao.find(bookId));
+//        return viewShoppingCart();
+//    } 
 }

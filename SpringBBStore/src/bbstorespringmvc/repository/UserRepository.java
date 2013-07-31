@@ -10,7 +10,7 @@ import bbstorespringmvc.model.User;
 @Repository
 @Transactional
 @SuppressWarnings("unchecked")
-public class UserDao extends BaseRepository<User> {
+public class UserRepository extends BaseRepository<User> {
 	
 	public  List<Book> findAllUsers(){
         return em.createQuery("select u from User u").getResultList();
