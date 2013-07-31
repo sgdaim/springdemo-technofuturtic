@@ -26,7 +26,7 @@ public class BookListController extends BaseController {
 	}
 	
 	/** Creates a few books in the DB */
-	@RequestMapping("createtestbooks")
+	@RequestMapping("createtestdata")
 	public String createTestBooks() {
 		Book b1 = new Book("12345", "Springo Fantastico", "John Rizzo", 10);
 		Book b2 = new Book("22345", "Javablabla", "John Rizzo", 20);

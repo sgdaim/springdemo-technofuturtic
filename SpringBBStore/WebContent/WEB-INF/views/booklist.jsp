@@ -27,5 +27,7 @@
 		</c:forEach>
 	</table>
 	
+	<a href="book/createtestdata">Create Books</a>
+	
 </body>
 </html>
