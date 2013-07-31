@@ -3,6 +3,7 @@ package bbstorespringmvc.repository;
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
 import javax.persistence.*;
+
 import org.springframework.transaction.annotation.Transactional;
 
 import bbstorespringmvc.model.BaseEntity;
@@ -55,5 +56,15 @@ public class BaseRepository<E extends BaseEntity> {
 
     public void setEntityManager(final EntityManager entityManager) {
         this.em = entityManager;
+    }
+    
+    // The JPA API EntityManager.getsingleResult() throws an exception if not found, which is not nice.
+    protected E getSingleOrNullResult(Query query) {
+        try {
+            E result = (E)query.getSingleResult();
+            return result;
+        } catch (NoResultException nre) {
+            return null;  // Normal, entity is just not found.
+        }
     }
 }

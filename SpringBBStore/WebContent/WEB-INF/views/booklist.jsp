@@ -23,11 +23,12 @@
 				<td>${book.author}</td>
 				<td>${book.isbn}</td>
 				<td>${book.price} euros</td>
+				<td><a href="book?id=${book.id}">display details</a>
 			</tr>
 		</c:forEach>
 	</table>
 	
-	<a href="book/createtestdata">Create Books</a>
+	<a href="bookcreatetestdata">Create a few test books</a>
 	
 </body>
 </html>
