@@ -13,7 +13,7 @@
           <property name="hibernate.connection.driver_class"
                     value="org.postgresql.Driver"/>
           <property name="hibernate.connection.url"
-                    value="jdbc:postgresql://127.0.0.1:5432/skDB"/>
+                    value="jdbc:postgresql://127.0.0.1:5432/SpringBBStore"/>
           <property name="hibernate.connection.username"
                     value="postgres"/>
           <property name="hibernate.connection.password"
@@ -24,7 +24,7 @@
            <!-- Create the database schema when this test.persistence unit is deployed, drop
                 it (clean the database) when it is undeployed
            -->
-           <property name="hibernate.hbm2ddl.auto" value="validate"/>
+           <property name="hibernate.hbm2ddl.auto" value="create"/>
       </properties>
    </persistence-unit>
 </persistence>
