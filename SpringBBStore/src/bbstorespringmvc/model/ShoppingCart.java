@@ -7,11 +7,7 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.context.annotation.ScopedProxyMode;
 import org.springframework.stereotype.Component;
 
-//@SuppressWarnings("serial")
-//@Component 
-//@Scope(value="session", proxyMode= ScopedProxyMode.TARGET_CLASS)
-
-public class ShoppingBasket implements Serializable {
+public class ShoppingCart implements Serializable {
     List<Book> bookList = new ArrayList<Book>();
     public void addBook(Book bk){
         bookList.add(bk);

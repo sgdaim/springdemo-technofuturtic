@@ -16,6 +16,11 @@
    Author: ${book.author} <br>
    Price: ${book.price} <br>
    <br>
-   <a href="bookedit?id=${book.id}">Edit book</a>
+   <a href="bookedit?id=${book.id}">Edit book</a>  <br>
+   <br>
+   <form action="addbooktocart">
+   		<input type="submit" value="add to cart" />
+   		<input type="hidden" name="bookidtoadd" value="${book.id}" />
+   </form>
 </body>
 </html>
