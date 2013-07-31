@@ -4,24 +4,25 @@ import java.io.Serializable;
 
 import javax.persistence.*;
 
-
-
-@SuppressWarnings("serial")
 @Entity
 public class Book extends BaseEntity implements Serializable{
-    private String isbn;
+
+	private String isbn;
     private String title;
-    @ManyToOne(fetch= FetchType.LAZY)
-    private Author author;
+    private String author;
     private int price;
+    
+    
+    
     public Book(){}
-    public Book(String isbn, String title, Author author,int price){
+    
+    public Book(String isbn, String title, String author,int price){
         this.setIsbn(isbn);
         this.setTitle(title);
         this.setAuthor(author);
         this.setPrice(price);
     }
-    //GETTER
+
     public String getIsbn() {
         return isbn;
     }
@@ -34,10 +35,10 @@ public class Book extends BaseEntity implements Serializable{
     public void setTitle(String title) {
         this.title = title;
     }
-    public Author getAuthor() {
+    public String getAuthor() {
         return author;
     }
-    public void setAuthor(Author author) {
+    public void setAuthor(String author) {
         this.author = author;
     }
     public int getPrice() {
