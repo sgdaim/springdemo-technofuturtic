@@ -17,7 +17,7 @@
 			!!!!!!!!! ICI Ahmed, remove from cart column
 		</tr>
 		
-		<c:forEach items="${sessionScope.shoppingCart.books}" var="book">
+		<c:forEach items="${shoppingCart.books}" var="book">
 			<tr>
 				<td>${book.title}</td>
 				<td>${book.author}</td>

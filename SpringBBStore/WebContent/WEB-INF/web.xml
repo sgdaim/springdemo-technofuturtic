@@ -17,9 +17,7 @@
     <param-value>/WEB-INF/classes/applicationContext.xml</param-value>
   </context-param>
   <listener>
-    <listener-class>
-			org.springframework.web.context.ContextLoaderListener
-		</listener-class>
+    <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
   </listener>
   
   <servlet-mapping>
@@ -29,9 +27,5 @@
   <servlet-mapping>
     <servlet-name>default</servlet-name>
     <url-pattern>*.jpg</url-pattern>
-  </servlet-mapping>
-  <servlet-mapping>
-    <servlet-name>default</servlet-name>
-    <url-pattern>*.html</url-pattern>
   </servlet-mapping>
 </web-app>
