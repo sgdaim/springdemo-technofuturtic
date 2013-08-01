@@ -24,30 +24,31 @@ public class ShoppingCartController extends BaseController {  // By convention h
 		Book book = (Book)getRequiredEntity(bookIdToAdd, Book.class);
 		
 		ShoppingCart shoppingCart = getCartFromSessionOrCreate(session);
-		shoppingCart.addBook(book);
+		shoppingCart.add(book);
 		
-		return new ModelAndView("bookaddtocartconfirm", // JSP name.
+		return new ModelAndView("shoppingcartaddconfirm", // JSP name.
 				"book", book);  // Attribute attached to the request (model).
 	}
 	
 	
 	@RequestMapping("/shoppingcartdisplay")
 	public String shoppingcartdisplay( HttpSession session) {  // The HttpSession is automatically provided by Spring if we specify it as parameter. 
-		getCartFromSessionOrCreate(session);
+		getCartFromSessionOrCreate(session); // We make sure that the cart exists, but we don't need it in this method. The JSP will need it and will find if in the session from ${shoppingCart}
 		
-		return new ModelAndView("bookaddtocartconfirm", // JSP name.
-				"book", book);  // Attribute attached to the request (model).
+		return "shoppingcartdisplay"; // JSP name.
 	}
 
 
-	private void getCartFromSessionOrCreate(HttpSession session) {
-		ShoppingCart shoppingCart = (ShoppingCart)session.getAttribute("ShoppingCart");
+	private ShoppingCart getCartFromSessionOrCreate(HttpSession session) {
+		ShoppingCart shoppingCart = (ShoppingCart)session.getAttribute("shoppingCart");
 
 		synchronized(session) {  
 			if (shoppingCart == null) {
 				shoppingCart = new ShoppingCart();
-				session.setAttribute("ShoppingCart", shoppingCart);
+				session.setAttribute("shoppingCart", shoppingCart);
 			}
 		}
+		
+		return shoppingCart;
 	}
 }

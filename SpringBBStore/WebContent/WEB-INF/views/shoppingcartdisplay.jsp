@@ -3,10 +3,10 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-   <title>Catalog</title>
+   <title>Shopping Cart</title>
 </head>
 <body>
-	<h1>Catalog</h1><br>
+	<h1>Shopping Cart</h1><br>
 
 	<table cellspacing="10">
 		<tr>
@@ -14,21 +14,25 @@
 			<td>Author</td>
 			<td>ISBN</td>
 			<td>Price</td>
-			<td></td>
+			!!!!!!!!! ICI Ahmed, remove from cart column
 		</tr>
 		
-		<c:forEach items="${bookList}" var="book">
+		<c:forEach items="${sessionScope.shoppingCart.books}" var="book">
 			<tr>
 				<td>${book.title}</td>
 				<td>${book.author}</td>
 				<td>${book.isbn}</td>
 				<td>${book.price} euros</td>
-				<td><a href="<c:url value='book?id=${book.id}'/>">display details</a>
+    			!!!!!!!!! ICI Ahmed, remove from cart link
 			</tr>
 		</c:forEach>
+		
+		<tr>
+		    <td>Total price</td>
+		    <td></td>
+		    <td></td>
+		    <td>${shoppingCart.totalPrice}</td>
 	</table>
-	
-	<a href="bookcreatetestdata">Create a few test books</a>
 	
 </body>
 </html>

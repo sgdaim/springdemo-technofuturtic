@@ -11,6 +11,8 @@
 
    <i>Book ${book.title} added to the cart!</i> <br/>
    <br/>
-   <a href="book?id=${book.id}">Back to Book Detail</a>  <br>
+   <a href="<c:url value='book?id=${book.id}'/>">Back to Book Detail</a>  <br>
+   <br/>
+   <a href="<c:url value='shoppingcartdisplay'/>">Show shopping cart</a>  <br>
 </body>
 </html>
