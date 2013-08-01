@@ -15,7 +15,7 @@ public class ShoppingCart implements Serializable {  // Needs to implement Seria
     }
     
     
-    public synchronized void remove(Long id){
+    public void remove(Long id){
         int i = 0;
         
     	for(Book book : bookList){
