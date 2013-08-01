@@ -16,13 +16,12 @@ public class ShoppingCart implements Serializable {  // Needs to implement Seria
     
     
     public void remove(Long id){
-        int i = 0;
-        
-    	for(Book book : bookList){
-    		if(book.getId() == id) break;
-    		i++;
+    	for(int i=0; i < bookList.size(); i++) {
+    		Book book = bookList.get(i);
+    		if (book.getId() == id) {
+    	    	bookList.remove(i);
+    		}
     	}
-    	bookList.remove(i);
     }
     
     public List<Book> getBooks(){
