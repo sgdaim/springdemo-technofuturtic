@@ -38,6 +38,15 @@ public class ShoppingCartController extends BaseController {  // By convention h
 		return "shoppingcartdisplay"; // JSP name.
 	}
 
+	
+	@RequestMapping ("/shoppingcartremove")
+    public ModelAndView shoppingCartRemove(@RequestParam("id") Long id){
+    	Book book = (Book)getRequiredEntity(id, Book.class);
+        bookRepository.remove(book);
+    
+        return new ModelAndView ("redirect:/booklist");
+    }
+
 
 	private ShoppingCart getCartFromSessionOrCreate(HttpSession session) {
 		ShoppingCart shoppingCart = (ShoppingCart)session.getAttribute("shoppingCart");
