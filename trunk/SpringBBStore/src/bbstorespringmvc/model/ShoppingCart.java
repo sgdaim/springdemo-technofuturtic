@@ -7,21 +7,26 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.context.annotation.ScopedProxyMode;
 import org.springframework.stereotype.Component;
 
-public class ShoppingCart implements Serializable {
+public class ShoppingCart implements Serializable {  // Needs to implement Serializable (and ArrayList and Book too) because the session might be serialized by the web container (Tomcat).
     List<Book> bookList = new ArrayList<Book>();
-    public void addBook(Book bk){
+
+    public void add(Book bk){
         bookList.add(bk);
     }
+    
     public void remove(Book bk){
         bookList.remove(bk);
     }
-    public List<Book> getList(){
+    
+    public List<Book> getBooks(){
         return bookList;
     }
-    public double getTotal(){
-        double tot= 0;
+    
+    // easy to call from a JSP: $ {shoppingCart.totalPrice)
+    public int getTotalPrice() {
+        int tot= 0;
         for(Book bk : bookList){
-            tot +=bk.getPrice();
+            tot += bk.getPrice();
         }
         return tot;
     }
