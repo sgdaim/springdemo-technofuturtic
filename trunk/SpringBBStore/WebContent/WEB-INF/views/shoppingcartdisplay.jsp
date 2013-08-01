@@ -23,7 +23,7 @@
 				<td>${book.author}</td>
 				<td>${book.isbn}</td>
 				<td>${book.price} euros</td>
-    			<td> <a href='./shoppingCartRemove?id=${book.id}'>Remove from cart</a></td>
+    			<td> <a href='./shoppingcartremove?id=${book.id}'>Remove from cart</a></td>
 			</tr>
 		</c:forEach>
 		

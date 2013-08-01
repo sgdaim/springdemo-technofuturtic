@@ -14,13 +14,21 @@ public class ShoppingCart implements Serializable {  // Needs to implement Seria
         bookList.add(bk);
     }
     
-    public void remove(Book bk){
-        bookList.remove(bk);
+    
+    public synchronized void remove(Long id){
+        int i = 0;
+        
+    	for(Book book : bookList){
+    		if(book.getId() == id) break;
+    		i++;
+    	}
+    	bookList.remove(i);
     }
     
     public List<Book> getBooks(){
         return bookList;
     }
+ 
     
     // easy to call from a JSP: $ {shoppingCart.totalPrice)
     public int getTotalPrice() {
