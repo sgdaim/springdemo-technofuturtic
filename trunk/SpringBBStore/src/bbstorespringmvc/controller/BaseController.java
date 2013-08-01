@@ -28,31 +28,7 @@ public class BaseController {
     }
 
     
-    //    protected Object getRequiredEntityByUrl(String url, Class<?> clazz){
-//    	Object obj;
-//		try {
-//			obj = em.createQuery("select e from "+clazz.getName()+" e where e.url = :url").setParameter("url",url).getSingleResult();
-//		} catch (Exception e) {
-//			throw new InvalidUrlException(clazz.getName() + " ayant l'url '"+url+"' est introuvable.", e);
-//		}
-//        return obj;
-//    }
-//    
-//    @SuppressWarnings("unchecked")
-//    protected E getRequiredEntityByUrl(String url){
-//    	Object obj;
-//		try {
-//			obj = em.createQuery("select e from "+entityClass.getName()+" e where lower(e.url) = :url")
-//					.setParameter("url",url.toLowerCase())
-//					.getSingleResult();
-//		} catch (Exception e) {
-//			throw new InvalidUrlException(entityClass.getName() + " ayant l'url '"+url+"' est introuvable.", e);
-//		}
-//        return ( E )obj;
-//    }
-//    /** Useful for SpringMVC @ModelAttribute method.
-//     * When a form is submitted, our @ModelAttribute method returns a detached entity.
-//     * Then Spring injects the parameters values in that entity, then the @RequestMapping method is called.
+
 //     * Our requestMapping controller method may refuse to validate the changes and if the entity is still attached,
 //     * the Hibernate's dirty checking might save the entity (which we do not want). 
 //     * @param id
