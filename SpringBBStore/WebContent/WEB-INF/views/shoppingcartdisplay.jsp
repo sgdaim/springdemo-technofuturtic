@@ -14,7 +14,7 @@
 			<td>Author</td>
 			<td>ISBN</td>
 			<td>Price</td>
-			!!!!!!!!! ICI Ahmed, remove from cart column
+			<td>Remove</td>
 		</tr>
 		
 		<c:forEach items="${shoppingCart.books}" var="book">
@@ -23,7 +23,7 @@
 				<td>${book.author}</td>
 				<td>${book.isbn}</td>
 				<td>${book.price} euros</td>
-    			!!!!!!!!! ICI Ahmed, remove from cart link
+    			<td> <a href='./shoppingCartRemove?id=${book.id}'>Remove from cart</a></td>
 			</tr>
 		</c:forEach>
 		

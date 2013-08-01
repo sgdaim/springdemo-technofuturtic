@@ -75,13 +75,6 @@ public class BookEditController extends BaseController {
     }
     
     
-    @RequestMapping ("/remove")
-    public ModelAndView removeBook(@RequestParam("id") Long id){
-    	Book book = (Book)getRequiredEntity(id, Book.class);
-        bookRepository.remove(book);
-    
-        return new ModelAndView ("redirect:/booklist");
-    }
 
 
     // This method (not easy to understand) is called by Spring, before calling the bookEditSubmit method.
