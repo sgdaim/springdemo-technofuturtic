@@ -1,0 +1,23 @@
+<persistence xmlns="http://java.sun.com/xml/ns/persistence"
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation="http://java.sun.com/xml/ns/persistence
+    http://java.sun.com/xml/ns/persistence/persistence_1_0.xsd"
+   version="1.0">
+
+   <persistence-unit name="PostgresPersistenceUnit">
+       <properties>
+          <!-- Scan and detect annotated entities -->
+          <property name="hibernate.archive.autodetection" value="class"/>
+          
+		  <!--DB Connexion values -->
+          <property name="hibernate.connection.driver_class" value="org.postgresql.Driver"/>
+          <property name="hibernate.connection.url"          value="jdbc:postgresql://127.0.0.1:5432/SpringBBStore"/>
+          <property name="hibernate.connection.username" value="postgres"/>
+          <property name="hibernate.connection.password" value="root"/>
+          <property name="hibernate.dialect"   value="org.hibernate.dialect.PostgreSQLDialect" />
+
+          <property name="hibernate.hbm2ddl.auto" value="create"/>
+      </properties>
+   </persistence-unit>
+</persistence>
+
