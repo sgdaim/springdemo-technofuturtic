@@ -18,11 +18,29 @@ public class ShoppingCartController extends BaseController {  // By convention h
 
 	@Autowired BookRepository bookRepository;
 	
-	@RequestMapping("/addbooktocart")
-	public ModelAndView addBookToCart(@RequestParam("bookidtoadd") long bookIdToAdd, // We could use isbn insead, but Book inherits from BaseEntity now and gets an .id field from it.
+	@RequestMapping("/shoppingcartadd")
+	public ModelAndView shoppingCartAdd(@RequestParam("bookidtoadd") long bookIdToAdd, // We could use isbn insead, but Book inherits from BaseEntity now and gets an .id field from it.
 			 HttpSession session) {  // The HttpSession is automatically provided by Spring if we specify it as parameter. 
 		Book book = (Book)getRequiredEntity(bookIdToAdd, Book.class);
 		
+		ShoppingCart shoppingCart = getCartFromSessionOrCreate(session);
+		shoppingCart.addBook(book);
+		
+		return new ModelAndView("bookaddtocartconfirm", // JSP name.
+				"book", book);  // Attribute attached to the request (model).
+	}
+	
+	
+	@RequestMapping("/shoppingcartdisplay")
+	public String shoppingcartdisplay( HttpSession session) {  // The HttpSession is automatically provided by Spring if we specify it as parameter. 
+		getCartFromSessionOrCreate(session);
+		
+		return new ModelAndView("bookaddtocartconfirm", // JSP name.
+				"book", book);  // Attribute attached to the request (model).
+	}
+
+
+	private void getCartFromSessionOrCreate(HttpSession session) {
 		ShoppingCart shoppingCart = (ShoppingCart)session.getAttribute("ShoppingCart");
 
 		synchronized(session) {  
@@ -31,8 +49,5 @@ public class ShoppingCartController extends BaseController {  // By convention h
 				session.setAttribute("ShoppingCart", shoppingCart);
 			}
 		}
-		
-		return new ModelAndView("bookaddtocartconfirm", // JSP name.
-				"book", book);  // Attribute attached to the request (model).
 	}
 }

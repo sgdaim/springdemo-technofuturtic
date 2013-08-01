@@ -6,6 +6,12 @@
 </head>
 
 <body>
-    Welcome to the Spring BBStore application!!!
+    Welcome to the Spring BBStore application!!!<br>
+    <br>
+    See <a href="booklist">our catalog of books</a>.<br>
+    <br>
+    See <a href="shoppingcart">your shopping cart</a>.<br>
+    <br>
+    <a href="login.html">Login</a>.<br>
 </body>
 </html>
