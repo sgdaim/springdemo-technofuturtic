@@ -7,7 +7,7 @@
 </head>
 
 <body>
-    Welcome to the Spring BBStore application!!!<br>
+    Welcome ${sessionScope.username} to the Spring BBStore application!!!<br>
     <br>
     See <a href="<c:url value='booklist'/>">our catalog of books</a>.<br>
     <br>
