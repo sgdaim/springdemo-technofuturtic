@@ -42,10 +42,10 @@ public class BookEditController extends BaseController {
 
     // Called when the user sumbits the form (previously done by BookEdit2Servlet)
     @RequestMapping("/bookeditsubmit")
-    public ModelAndView bookEditSubmit(@Valid @ModelAttribute Book book, BindingResult result){
+    public ModelAndView bookEditSubmit(@Valid @ModelAttribute Book book, BindingResult bindingResult){
        
     	// Spring can automatically detect some validation problems, according to the annotations on the entity.
-        if (result.hasErrors()) { // If spring has detected validation errors, we redisplay the form.
+        if (bindingResult.hasErrors()) { // If spring has detected validation errors, we redisplay the form.
             return new ModelAndView ("bookedit", "book", book);
         }
 
@@ -54,23 +54,24 @@ public class BookEditController extends BaseController {
 
         if (book.getId() == null) { // New book instance (not from DB)
             if(bookHavingThatIsbn != null) {
-            	return otherBookError(book, bookHavingThatIsbn);
+            	return otherBookError(book, bookHavingThatIsbn, bindingResult);
             }
             bookRepository.persist(book);
 
         } else {  // Edited book instance.
             if(bookHavingThatIsbn != null && !book.equals(bookHavingThatIsbn)) {
-            	return otherBookError(book, bookHavingThatIsbn);
+            	return otherBookError(book, bookHavingThatIsbn, bindingResult);
             }
             bookRepository.merge(book);  // needed because book is detached (=> no automatic dirty checking).
         }
-        return new ModelAndView ("redirect:/book?id="+book.getId());  //redirect to book display
+        
+        return new ModelAndView ("redirect:/book?id="+book.getId());  // no error => redirect to book display
     }
     
-    private ModelAndView otherBookError(Book book, Book otherBook) {
+    private ModelAndView otherBookError(Book book, Book otherBook, BindingResult bindingResult) {
         ModelAndView mv = new ModelAndView ("bookedit", "book", book);
+        bindingResult.rejectValue("isbn", "", "Un autre livre utilise déjà cet ISBN '" + book.getIsbn() + "'");
         System.out.println("Un autre livre utilise déjà cet ISBN '" + book.getIsbn() + "'");
-//        NotificationUtil.addNotificationMessage("Un autre livre utilise déjà cet ISBN '" + book.getIsbn() + "'");
         return mv;
     }
     
@@ -85,6 +86,8 @@ public class BookEditController extends BaseController {
     // If the form has been used to create a new book, there is no id and we do new Book() ourselves (and in bookEditSubmit, we'll do an em.persist(book)).
     // If the form has boon used to edit an existing book, we get this existing book from Hibernate (and in bookEditSubmit, we'll do an am.merge(book)).
     // In the edit case, we return a detached entity to avoir auto-saving with dirty checking. Indeed, if the entity was managed (not detached), it would be saved at the end by the OpenEntityManagerInViewFilter. But if there is a validation error (a mistake from the user in the field) we don't want to save. Having the entity detached enables us to need an explicit save (em.merge(book)).
+    // See http://feima2011.wordpress.com/2011/01/23/restful-in-spring-3/
+    //     http://blog.netapsys.fr/index.php/post/2011/12/30/Spring-MVC-Formulaire-et-validation
     @ModelAttribute
     public Book findBook(@RequestParam(value ="id", required = false) Long id) {
         if (id == null){ //create

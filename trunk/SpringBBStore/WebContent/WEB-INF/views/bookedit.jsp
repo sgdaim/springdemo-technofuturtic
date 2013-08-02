@@ -14,10 +14,13 @@
 	<h1>Edit Book</h1>
 	<form:form modelAttribute="book" method="post" action='<%=response.encodeUrl("bookeditsubmit")%>'>
 		<form:hidden path="id" />
-		Title: <form:input path="title" />	<br>
-		Price: <form:input path="price" />euros<br>
-		ISBN: <form:input path="isbn" />  <br>
+		<label>Title</label>   <form:input path="title" />       <form:errors path="title" /><br>
+		<label>Price</label>   <form:input path="price" />euros  <form:errors path="price" /><br>
+		<label>ISBN</label>    <form:input path="isbn" />        <form:errors path="isbn" /><br>
 		<input type="submit" value="Save" />
 	</form:form>
+	
+	<a href="./">home page</a><br/>
+	
 </body>
 </html>

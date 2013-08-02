@@ -12,6 +12,7 @@ import bbstorespringmvc.model.Book;
 import bbstorespringmvc.repository.BookRepository;
 
 @Controller
+@RequestMapping("book")
 public class BookListController extends BaseController {
 
 	@Autowired BookRepository bookRepository;
