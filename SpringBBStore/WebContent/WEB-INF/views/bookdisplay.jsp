@@ -24,5 +24,8 @@
    		<input type="submit" value="add to cart" />
    		<input type="hidden" name="bookidtoadd" value="${book.id}" />
    </form>
+   
+	<a href="./">home page</a><br/>
+   
 </body>
 </html>

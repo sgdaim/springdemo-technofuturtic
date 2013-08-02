@@ -14,5 +14,8 @@
    <a href="<c:url value='book?id=${book.id}'/>">Back to Book Detail</a>  <br>
    <br/>
    <a href="<c:url value='shoppingcartdisplay'/>">Show shopping cart</a>  <br>
+   <br/>
+   <a href="./">home page</a><br/>
+   
 </body>
 </html>

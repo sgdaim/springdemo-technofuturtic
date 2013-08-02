@@ -28,7 +28,12 @@
 		</c:forEach>
 	</table>
 	
-	<a href="bookcreatetestdata">Create a few test books</a>
+	<a href="bookcreatetestdata">Create a few test books automatically</a>.<br/>
+	<br/>
+	<a href="bookcreate">Create a book manually</a>.<br/>
+	<br/>
+	
+	<a href="./">home page</a><br/>
 	
 </body>
 </html>
