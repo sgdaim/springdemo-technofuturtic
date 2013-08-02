@@ -12,7 +12,6 @@ import bbstorespringmvc.model.Book;
 import bbstorespringmvc.repository.BookRepository;
 
 @Controller
-@RequestMapping("book")
 public class BookListController extends BaseController {
 
 	@Autowired BookRepository bookRepository;
@@ -36,6 +35,6 @@ public class BookListController extends BaseController {
 		bookRepository.persist(b2);
 		bookRepository.persist(b3);
 		
-		return "redirect:/booklist";  // display the list again. We ask the browser to send a new HTTP request to /book, and we'll go through the controller putting the list of books in the request (in the ModelAndView) for the JSP.
+		return "redirect:/booklist";  // display the list again. We ask the browser to send a new HTTP request to /booklist, and we'll go through the controller putting the list of books in the request (in the ModelAndView) for the JSP.
 	}
 }
