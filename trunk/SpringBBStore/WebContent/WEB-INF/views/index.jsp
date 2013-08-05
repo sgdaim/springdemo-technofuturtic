@@ -11,7 +11,7 @@
     <br>
     See <a href="<c:url value='booklist'/>">our catalog of books</a>.<br>
     <br>
-    See <a href="<c:url value='shoppingcart'/>">your shopping cart</a>.<br>
+    See <a href="<c:url value='shoppingcartdisplay'/>">your shopping cart</a>.<br>
     <br>
     <a href="<c:url value='login'/>">Login</a>.<br>
 </body>
